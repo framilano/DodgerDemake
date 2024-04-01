@@ -10,7 +10,7 @@ function update_title()
 
     --level one
     if btn(4) then
-        change_mode_and_reset("level_one")
+        change_mode_and_reset("level_two")
     end
 
     update_title_input_queue()

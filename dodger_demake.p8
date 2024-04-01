@@ -93,7 +93,6 @@ end
 #include src/scenes/transition/draw.lua
 #include src/scenes/transition/update.lua
 
-
 ---entities sources---
 #include src/entities/ship.lua
 #include src/entities/player.lua
@@ -103,6 +102,7 @@ end
 #include src/utils/gameplay.lua
 #include src/utils/timers.lua
 #include src/utils/tables.lua
+
 __gfx__
 22e2222222e2222222222222222e2222000000006777777700aaaa000aaaa0000a000a0000aaa00000aaaa000aaaa0000aa0aa0000aaa0000000000000000000
 2eee22222e222222222e22222222e22200000000566666670aaaaaa0aaaaaa00aa000aa00aaaaa000aaaaaa0aaaaaa00aaa0aaa00aaaaa000000000000000000
