@@ -1,23 +1,17 @@
 function update_title()
 
-    local go_to_two = check_for_code(global_vars.two_code)
-    local go_to_three = check_for_code(global_vars.three_code)
-    
-    --level three
-    if btn(4) and go_to_three then
-        change_mode_and_reset("level_three")
-        return
-    end
-    
-    --level two
-    if btn(4) and go_to_two then
-        change_mode_and_reset("level_two")
-        return
+    for i=1,count(global_vars.levels_codes) do
+        local go_to_level = check_for_code(global_vars.levels_codes[i])
+        if btn(4) and go_to_level then
+            level_number = tonum(i+1)
+            change_mode_and_reset("level_"..level_number)
+            return
+        end
     end
 
-    --level one
     if btn(4) then
-        change_mode_and_reset("level_one")
+        change_mode_and_reset("level_1")
+        return
     end
 
     update_title_input_queue()

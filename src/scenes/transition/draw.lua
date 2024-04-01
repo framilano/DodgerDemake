@@ -4,7 +4,7 @@ function draw_transition()
     y_start = 32
     width = 10
     height = 7
-
+    
     --first line
     spr(38, x_start, y_start)
     for i=1,width do
@@ -31,15 +31,15 @@ function draw_transition()
 
     print(congrats_message, horizontal_center_text(#congrats_message), y_start+8, 14)
 
-    for i=1,count(next_level_code) do
+    for i=1,count(next_levels_code) do
         local symbol_spr = 0
-        if next_level_code[i] == 2 then
+        if next_levels_code[i] == 2 then
             symbol_spr = 0
-        elseif next_level_code[i] == 0 then
+        elseif next_levels_code[i] == 0 then
             symbol_spr = 1
-        elseif next_level_code[i] == 1 then
+        elseif next_levels_code[i] == 1 then
             symbol_spr = 3
-        elseif next_level_code[i] == 3 then
+        elseif next_levels_code[i] == 3 then
             symbol_spr = 2
         end
 

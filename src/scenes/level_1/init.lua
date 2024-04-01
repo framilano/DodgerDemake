@@ -1,6 +1,6 @@
-function init_level_one()
+function init_level_1()
     
-    global_vars.current_level = "one"
+    global_vars.current_level = 1
 
     --saving every bullets on fields
     bullets = {}

@@ -1,4 +1,4 @@
-function draw_level_three()
+function draw_level_1()
 
     player_draw_counter += 1
     cls(0)

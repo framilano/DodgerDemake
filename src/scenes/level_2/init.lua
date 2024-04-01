@@ -1,6 +1,6 @@
-function init_level_two()
+function init_level_2()
     
-    global_vars.current_level = "two"
+    global_vars.current_level = 2
 
     bullets = {}
     player_draw_counter = 0

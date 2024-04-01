@@ -1,4 +1,4 @@
-function update_level_one()
+function update_level_1()
     handle_bullets()
     
     check_bullets_collision()

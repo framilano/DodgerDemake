@@ -1,4 +1,4 @@
-function update_level_three()
+function update_level_3()
     handle_bullets()
     
     check_bullets_collision()

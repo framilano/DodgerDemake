@@ -8,10 +8,17 @@ function _init()
 		fps = 30,
 		hp = 3,
 		mode = "title", --initial mode
-		current_level = "one",
-		--levels code
-    	two_code = {2, 1, 1, 2},
-		three_code = {3, 0, 1, 3}
+		current_level = 1,
+		levels_codes = {	--levels code
+			{2, 1, 1, 2},	--level 2
+			{3, 0, 1, 3},	--level 3
+			{0, 0, 2, 2}	--level 4
+		},
+		levels_messages = {
+			"congrats!",	--level 2 message
+			"nice!",		--level 3 message
+			"cool"
+		}
 	}
 	
 
@@ -21,9 +28,10 @@ end
 
 function _update()
 	if (global_vars.mode == "title") update_title()
-	if (global_vars.mode == "level_one") update_level_one()
-	if (global_vars.mode == "level_two") update_level_two()
-	if (global_vars.mode == "level_three") update_level_three()
+	if (global_vars.mode == "level_1") update_level_1()
+	if (global_vars.mode == "level_2") update_level_2()
+	if (global_vars.mode == "level_3") update_level_3()
+	if (global_vars.mode == "level_4") update_level_4()
 
 	if (global_vars.mode == "transition") update_transition()
 
@@ -33,21 +41,24 @@ end
 
 function _draw()
 	if (global_vars.mode == "title") draw_title()
-	if (global_vars.mode == "level_one") draw_level_one()
-	if (global_vars.mode == "level_two") draw_level_two()
-	if (global_vars.mode == "level_three") draw_level_three()
+	if (global_vars.mode == "level_1") draw_level_1()
+	if (global_vars.mode == "level_2") draw_level_2()
+	if (global_vars.mode == "level_3") draw_level_3()
+	if (global_vars.mode == "level_4") draw_level_4()
 	
 	if (global_vars.mode == "transition") draw_transition()
 
 	--print("current global_vars.mode = "..global_vars.mode, 20, 20, 7)
-	print(global_vars.current_level, 10, 10)
+	--print(global_vars.current_level, 10, 10)
 end
 
 function change_mode_and_reset(new_mode)
 	if new_mode == "title" then init_title()
-	elseif new_mode == "level_one" then init_level_one()
-	elseif new_mode == "level_two" then init_level_two()
-	elseif new_mode == "level_three" then init_level_three()
+	elseif new_mode == "level_1" then init_level_1()
+	elseif new_mode == "level_2" then init_level_2()
+	elseif new_mode == "level_3" then init_level_3()
+	elseif new_mode == "level_4" then init_level_4()
+
 	elseif new_mode == "transition" then init_transition()
 	end
 	
@@ -57,9 +68,7 @@ function change_mode_and_reset(new_mode)
 	timers = {}
 end
 
-function change_mode(new_mode)
-	global_vars.mode = new_mode
-end
+function change_mode(new_mode) global_vars.mode = new_mode end
 
 ---shared levels sources---
 #include src/scenes/shared/draw_functions.lua
@@ -70,20 +79,25 @@ end
 #include src/scenes/title/draw.lua
 #include src/scenes/title/update.lua
 
----level_one sources---
-#include src/scenes/level_one/init.lua
-#include src/scenes/level_one/draw.lua
-#include src/scenes/level_one/update.lua
+---level_1 sources---
+#include src/scenes/level_1/init.lua
+#include src/scenes/level_1/draw.lua
+#include src/scenes/level_1/update.lua
 
----level_two sources---
-#include src/scenes/level_two/init.lua
-#include src/scenes/level_two/draw.lua
-#include src/scenes/level_two/update.lua
+---level_2 sources---
+#include src/scenes/level_2/init.lua
+#include src/scenes/level_2/draw.lua
+#include src/scenes/level_2/update.lua
 
----level_three sources---
-#include src/scenes/level_three/init.lua
-#include src/scenes/level_three/draw.lua
-#include src/scenes/level_three/update.lua
+---level_3 sources---
+#include src/scenes/level_3/init.lua
+#include src/scenes/level_3/draw.lua
+#include src/scenes/level_3/update.lua
+
+---level_4 sources---
+#include src/scenes/level_4/init.lua
+#include src/scenes/level_4/draw.lua
+#include src/scenes/level_4/update.lua
 
 ---transition sources---
 #include src/scenes/transition/init.lua
