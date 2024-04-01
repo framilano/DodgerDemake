@@ -2,10 +2,12 @@ function draw_player()
     spr(player.spr, player.x, player.y)
 end
 
-function draw_strawberries()
-    for position in all(strawberries.positions) do
-        spr(strawberries.spr, position[1], position[2])
-    end 
+function draw_fruits()
+    for fruit in all(fruits) do
+        for position in all(fruit.positions) do
+            spr(fruit.spr, position[1], position[2])
+        end
+    end
 end
 
 function draw_skeletons()

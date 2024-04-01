@@ -16,7 +16,7 @@ function death_event()
     local frames_diff = global_vars.frame_counter - death_frame
     local index = flr(frames_diff / 5)
     if index > 4 then 
-        if global_vars.hp != 0 then reset_ships_and_player()
+        if global_vars.hp > 0 then reset_ships_and_player()
         else change_mode_and_reset("title") end
         return
     end 
@@ -60,17 +60,20 @@ function check_player_boundaries()
 
 end
 
-function check_strawberries_eating()
-    for position in all(strawberries.positions) do
-        if player.x == position[1] and player.y == position[2] then
-            sfx(0)
-            del(strawberries.positions, position)
-
-            if count(strawberries.positions) == 0 then
-                change_mode_and_reset("transition")
+function check_fruits_eating()
+    local all_eaten = true
+    for fruit in all(fruits) do
+        for position in all(fruit.positions) do
+            if player.x == position[1] and player.y == position[2] then
+                sfx(0)
+                del(fruit.positions, position)
             end
         end
+        if count(fruit.positions) != 0 then
+            all_eaten = false
+        end
     end
+    if all_eaten then change_mode_and_reset("transition") end
 end
 
 function check_skeletons_impact()
