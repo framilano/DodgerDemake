@@ -8,26 +8,26 @@ function draw_transition()
     --first line
     spr(38, x_start, y_start)
     for i=1,width do
-        spr(44, x_start + 8*i, y_start)
+        spr(39, x_start + 8*i, y_start, 1, 1, false, true)
     end
-    spr(41, x_start + (width+1)*8, y_start)
+    spr(38, x_start + (width+1)*8, y_start, 1, 1, true, false)
 
 
     --middle lines
     for j = 1, height do
-        spr(45, x_start, y_start + j*8)
+        spr(40, x_start, y_start + j*8)
         for i=1,width do
-            spr(46, x_start + 8*i, y_start + j*8)
+            spr(41, x_start + 8*i, y_start + j*8)
         end
-        spr(43, x_start + (width+1)*8, y_start + j*8)
+        spr(40, x_start + (width+1)*8, y_start + j*8, 1, 1, true, false)
     end
 
     --last line
-    spr(39, x_start, y_start + (height+1)*8)
+    spr(38, x_start, y_start + (height+1)*8, 1, 1, false, true)
     for i=1,width do
-        spr(42, x_start + 8*i, y_start + (height+1)*8)
+        spr(39, x_start + 8*i, y_start + (height+1)*8)
     end
-    spr(40, x_start + (width+1)*8, y_start + (height+1)*8)
+    spr(38, x_start + (width+1)*8, y_start + (height+1)*8, 1, 1, true, true)
 
     print(congrats_message, horizontal_center_text(#congrats_message), y_start+8, 14)
 
