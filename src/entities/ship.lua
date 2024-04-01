@@ -22,7 +22,7 @@ function search_player(ship)
         -- keep moving if we can't find the enemy
         if ship.y == 112 then ship.speed = -abs(ship.speed) end
         if ship.y == 8 then ship.speed = abs(ship.speed) end
-        if (sin(global_vars.frame_counter / 5) == 0) then ship.y += ship.speed end
+        if (sin(global_vars.frame_counter / 11) == 0) then ship.y += ship.speed end
     elseif ship.id == "up" or ship.id == "down" then
         if (ship.x == player.x) then
             ship.status = "shooting"
@@ -35,7 +35,7 @@ function search_player(ship)
 
         if ship.x == 112 then ship.speed = -abs(ship.speed) end
         if ship.x == 8 then ship.speed = abs(ship.speed) end
-        if (sin(global_vars.frame_counter / 5) == 0) then ship.x += ship.speed end
+        if (sin(global_vars.frame_counter / 11) == 0) then ship.x += ship.speed end
     end
 end
 
@@ -86,7 +86,7 @@ function back_to_reload(ship)
             ship.status = "searching_player" 
             ship.speed = abs(ship.speed)
         end
-        if (sin(global_vars.frame_counter / 5) == 0) then ship.y += ship.speed end
+        if (sin(global_vars.frame_counter / 11) == 0) then ship.y += ship.speed end
     elseif ship.id == "up" or ship.id == "down" then
         if ship.x == 112 then 
             ship.status = "searching_player" 
@@ -96,6 +96,6 @@ function back_to_reload(ship)
             ship.status = "searching_player" 
             ship.speed = abs(ship.speed)
         end
-        if (sin(global_vars.frame_counter / 5) == 0) then ship.x += ship.speed end
+        if (sin(global_vars.frame_counter / 11) == 0) then ship.x += ship.speed end
     end
 end

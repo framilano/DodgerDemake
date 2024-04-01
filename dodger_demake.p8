@@ -50,6 +50,7 @@ function _draw()
 
 	--print("current global_vars.mode = "..global_vars.mode, 20, 20, 7)
 	--print(global_vars.current_level, 10, 10)
+	--print(global_vars.hp, 10, 10)
 end
 
 function change_mode_and_reset(new_mode)

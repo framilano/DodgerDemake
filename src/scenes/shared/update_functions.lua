@@ -83,6 +83,7 @@ function check_skeletons_impact()
             death_frame = global_vars.frame_counter
             player.status = "dying"
             music(0)
+            return
         end
     end
 end
@@ -94,6 +95,7 @@ function check_bullets_collision()
             death_frame = global_vars.frame_counter
             player.status = "dying"
             music(0)
+            return
         end
     end
 end
