@@ -23,7 +23,8 @@ function _update()
 	if (global_vars.mode == "title") update_title()
 	if (global_vars.mode == "level_one") update_level_one()
 	if (global_vars.mode == "level_two") update_level_two()
-	
+	if (global_vars.mode == "level_three") update_level_three()
+
 	if (global_vars.mode == "transition") update_transition()
 
 	global_vars.frame_counter += 1
@@ -34,39 +35,30 @@ function _draw()
 	if (global_vars.mode == "title") draw_title()
 	if (global_vars.mode == "level_one") draw_level_one()
 	if (global_vars.mode == "level_two") draw_level_two()
+	if (global_vars.mode == "level_three") draw_level_three()
 	
 	if (global_vars.mode == "transition") draw_transition()
 
 	--print("current global_vars.mode = "..global_vars.mode, 20, 20, 7)
-	--print(global_vars.current_level, 10, 10)
+	print(global_vars.current_level, 10, 10)
 end
 
 function change_mode_and_reset(new_mode)
-	if new_mode == "title" then
-		init_title()
-		global_vars.mode = "title"
-	elseif new_mode == "level_one" then
-		init_level_one()
-		global_vars.mode = "level_one"
-	elseif new_mode == "level_two" then
-		init_level_two()
-		global_vars.mode = "level_two"
-	
-	elseif new_mode == "transition" then
-		init_transition()
-		global_vars.mode = "transition"
+	if new_mode == "title" then init_title()
+	elseif new_mode == "level_one" then init_level_one()
+	elseif new_mode == "level_two" then init_level_two()
+	elseif new_mode == "level_three" then init_level_three()
+	elseif new_mode == "transition" then init_transition()
 	end
+	
+	global_vars.mode = new_mode
 
 	--Resetting timers
 	timers = {}
 end
 
 function change_mode(new_mode)
-	if (new_mode == "title") global_vars.mode = "title"
-	if (new_mode == "level_one") global_vars.mode = "level_one"
-	if (new_mode == "level_two") global_vars.mode = "level_two"
-
-	if (new_mode == "transition") global_vars.mode = "transition"
+	global_vars.mode = new_mode
 end
 
 ---shared levels sources---
@@ -87,6 +79,11 @@ end
 #include src/scenes/level_two/init.lua
 #include src/scenes/level_two/draw.lua
 #include src/scenes/level_two/update.lua
+
+---level_three sources---
+#include src/scenes/level_three/init.lua
+#include src/scenes/level_three/draw.lua
+#include src/scenes/level_three/update.lua
 
 ---transition sources---
 #include src/scenes/transition/init.lua

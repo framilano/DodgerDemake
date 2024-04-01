@@ -29,12 +29,12 @@ for i in range(0, 14):
         if (pix[i, j] == skeletons_rgb): list_of_skeletons.append("{" + str((i + 1)*8) + ", " + str((j + 1)*8) +"}")
         if (pix[i, j] == player_rgb):  list_of_players.append("{" + str((i + 1)*8) + ", " + str((j + 1)*8) +"}")
 
-voids = f"voids =\n{list_of_voids}".replace("[", "{").replace("]", "}").replace("'", "") 
-strawberries = f"strawberries =\n{list_of_strawberries}".replace("[", "{").replace("]", "}").replace("'", "") 
+voids = f"voids =\n{list_of_voids}".replace("[", "{\n").replace("]", "\n}").replace("'", "") 
+strawberries = f"strawberries =\n{list_of_strawberries}".replace("[", "{\n").replace("]", "\n}").replace("'", "") 
 walls = f"walls =\n{list_of_walls}".replace("[", "{\n").replace("]", "\n}").replace("'", "") 
-cherries = f"cherries =\n{list_of_cherries}".replace("[", "{").replace("]", "}").replace("'", "") 
-skeletons = f"skeletons =\n{list_of_skeletons}".replace("[", "{").replace("]", "}").replace("'", "") 
-players = f"players =\n{list_of_players}".replace("[", "{").replace("]", "}").replace("'", "") 
+cherries = f"cherries =\n{list_of_cherries}".replace("[", "{\n").replace("]", "\n}").replace("'", "") 
+skeletons = f"skeletons =\n{list_of_skeletons}".replace("[", "{\n").replace("]", "\n}").replace("'", "") 
+players = f"players =\n{list_of_players}".replace("[", "{\n").replace("]", "\n}").replace("'", "") 
 
 print(voids)
 print("\n\n")

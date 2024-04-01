@@ -1,7 +1,14 @@
 function update_title()
 
     local go_to_two = check_for_code(global_vars.two_code)
-
+    local go_to_three = check_for_code(global_vars.three_code)
+    
+    --level three
+    if btn(4) and go_to_three then
+        change_mode_and_reset("level_three")
+        return
+    end
+    
     --level two
     if btn(4) and go_to_two then
         change_mode_and_reset("level_two")
