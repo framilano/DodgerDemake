@@ -19,6 +19,12 @@ A tribute to a Windows 3.1 game called [Dodger (1994)](https://archive.org/detai
 ## Content
 The game currently has only 5 levels, the original Dodger had 10 levels in its shareware version, I never found the complete version.
 
+## How to play
+- Use arrow keys to move around
+- Eat all fruits
+- Avoid skulls and enemy ships' bullets
+- (On title screen) Press X (on PC) to change the color palette to a warmer kind
+  
 ## Screenshots
 ![title_screen](https://github.com/framilano/DodgerDemake/assets/28491164/7cedd449-e164-40e7-9aa5-ead4344a3d2a)
 ![level_1](https://github.com/framilano/DodgerDemake/assets/28491164/a02cff9c-08e3-429d-931b-81dbb105b5e0)
