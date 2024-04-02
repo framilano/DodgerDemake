@@ -2,7 +2,7 @@ function draw_title()
     cls(0)
     draw_grid(0, 128)
     
-    spr(64, 4, 16, 64, 64)
+    draw_fruits()
 
     -- Press Z to START
     if (sin(global_vars.frame_counter / 30) <= 0) then

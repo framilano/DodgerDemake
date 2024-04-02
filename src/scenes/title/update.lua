@@ -19,6 +19,8 @@ function update_title()
         return
     end
 
+    animate_dodger_screen()
+
     update_title_input_queue()
 end
 
@@ -72,4 +74,22 @@ function check_for_code(code_list)
         end
     end
     return false
+end
+
+function animate_dodger_screen()
+    for fruit in all(fruits) do
+        if fruit.type == "apple" or fruit.type == "strawberry" then
+            if (sin(global_vars.frame_counter / 28) == 1) then
+                for position in all(fruit.positions) do
+                    position[2] += 2
+                end
+            end
+
+            if (sin(global_vars.frame_counter / 28) == -1) then
+                for position in all(fruit.positions) do
+                    position[2] -= 2
+                end
+            end
+        end
+    end
 end
