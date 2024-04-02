@@ -1,5 +1,10 @@
 function update_title()
 
+    -- checks if user is requesting a new palette color
+    check_for_color_palette_changer()
+    
+
+    -- checks if user is using a new level code
     for i=1,count(global_vars.levels_codes) do
         local go_to_level = check_for_code(global_vars.levels_codes[i])
         if btn(4) and go_to_level then
@@ -15,6 +20,14 @@ function update_title()
     end
 
     update_title_input_queue()
+end
+
+function check_for_color_palette_changer()
+    if btnp(5) then
+        if dget(0) == 0 then use_alternative_color_palette(1)
+        else use_alternative_color_palette(0)
+        end
+    end
 end
 
 function update_title_input_queue()
