@@ -1,4 +1,4 @@
-# DodgerDemake
+# Dodger Demake
 
 <p align="center">
   <em>
