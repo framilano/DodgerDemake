@@ -1,5 +1,7 @@
 <div align="center"><h1>Dodger Demake</h1></div>
 
+![title](https://github.com/framilano/DodgerDemake/assets/28491164/79a5ea5c-4c69-46a5-823a-6f7b847c9ee7)
+
 <p align="center">
   <em>
 The year is 1982 and pacman has once again managed to be zapped 
@@ -34,7 +36,3 @@ https://github.com/framilano/DodgerDemake/assets/28491164/a6b35459-1773-40a0-857
 ![title_screen](https://github.com/framilano/DodgerDemake/assets/28491164/7cedd449-e164-40e7-9aa5-ead4344a3d2a)
 ![level_1](https://github.com/framilano/DodgerDemake/assets/28491164/a02cff9c-08e3-429d-931b-81dbb105b5e0)
 ![level_2](https://github.com/framilano/DodgerDemake/assets/28491164/e288c998-9162-4ad8-a4e0-efaeca9f2f79)
-
-
-
-
