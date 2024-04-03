@@ -1,4 +1,4 @@
-# Dodger Demake
+<div align="center"><h1>Dodger Demake</h1></div>
 
 <p align="center">
   <em>
@@ -14,20 +14,27 @@ retirement (no more pacman games please - Pacman)
 </p>
 
 ## What is this?
-A tribute to a Windows 3.1 game called [Dodger (1994)](https://archive.org/details/Dodger_1020#) made by Ivan Mackintosh, this is a demake though, the game is feature complete but presents a smaller playable area (128x128, due to PICO-8 features)
+A tribute to a Windows 3.1 game called [Dodger (1994)](https://archive.org/details/Dodger_1020#) made by Ivan Mackintosh, this is a demake though, the game is feature complete but presents a smaller playable area than the original one (a 128x128 grid, due to PICO-8 features).\
+\
+**The game is publicly available and playable on lexaoffle pico-8 site** [here](https://www.lexaloffle.com/bbs/?tid=141398)
 
 ## Content
-The game currently has only 5 levels, the original Dodger had 10 levels in its shareware version, I never found the complete version.
+The game currently has only 6 levels, the original Dodger had 10 levels in its shareware version, I never managed to get my hands on the full version of it.
 
 ## How to play
-- Use arrow keys to move around
-- Eat all fruits
-- Avoid skulls and enemy ships' bullets
-- (On title screen) Press X (on PC) to change the color palette to a warmer kind
+- Use arrow keys to move around.
+- (On PC) Use Z/X to interact with the game.
+- Eat all fruits.
+- Avoid skulls and enemy ships' bullets.
+- (On title screen) Press X (on PC) to change the color palette to a warmer one.
   
-## Screenshots
+## Media
+https://github.com/framilano/DodgerDemake/assets/28491164/a6b35459-1773-40a0-8573-20edeaf32f78
+
 ![title_screen](https://github.com/framilano/DodgerDemake/assets/28491164/7cedd449-e164-40e7-9aa5-ead4344a3d2a)
 ![level_1](https://github.com/framilano/DodgerDemake/assets/28491164/a02cff9c-08e3-429d-931b-81dbb105b5e0)
 ![level_2](https://github.com/framilano/DodgerDemake/assets/28491164/e288c998-9162-4ad8-a4e0-efaeca9f2f79)
+
+
 
 
