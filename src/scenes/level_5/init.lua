@@ -1,14 +1,10 @@
-function init_level_1()
+function init_level_5()
 
-    global_vars.current_level = 1
+    global_vars.current_level = 5
 
-    -- saving every bullets on fields
     bullets = {}
-    -- counts how many times the player is drawn, used to check if we should show an open or closed mouth sprite
     player_draw_counter = 0
-    -- saving the death frame to have a starting point for the death animation
     death_frame = 0
-    -- inputs queue containing arrow inputs from the user
     input_queue = {}
 
     player = {
@@ -94,23 +90,31 @@ function init_level_1()
             type = "strawberry",
             spr = 18,
             spr_start = {0, 0},
-            positions = {
-                {16, 56}, {16, 64}, {24, 24}, {24, 56}, {24, 64}, {24, 96},
-                {40, 40}, {40, 80}, {56, 16}, {56, 24}, {56, 96}, {56, 104},
-                {64, 16}, {64, 24}, {64, 96}, {64, 104}, {80, 40}, {80, 80},
-                {96, 24}, {96, 56}, {96, 64}, {96, 96}, {104, 56}, {104, 64}
-            }
+            positions = {{112, 112}}
         }, {type = "cherry", spr = 20, spr_start = {0, 0}, positions = {}}
     }
 
-    skeletons = {
-        spr = 19,
-        spr_start = {0, 0},
-        positions = {
-            {16, 16}, {16, 104}, {32, 32}, {32, 88}, {88, 32}, {88, 88},
-            {104, 16}, {104, 104}
+    skeletons = {}
+
+    obstacles = {
+        {type = "voids", positions = {}}, {
+            type = "walls",
+            positions = {
+                {16, 16}, {16, 24}, {16, 32}, {16, 40}, {16, 48}, {16, 56},
+                {16, 64}, {16, 72}, {16, 80}, {16, 88}, {16, 96}, {16, 104},
+                {24, 16}, {24, 104}, {32, 32}, {32, 40}, {32, 48}, {32, 56},
+                {32, 64}, {32, 72}, {32, 80}, {32, 88}, {32, 104}, {40, 16},
+                {40, 32}, {40, 88}, {40, 104}, {48, 16}, {48, 32}, {48, 48},
+                {48, 56}, {48, 64}, {48, 72}, {48, 88}, {48, 104}, {56, 16},
+                {56, 32}, {56, 72}, {56, 88}, {56, 104}, {64, 16}, {64, 32},
+                {64, 48}, {64, 72}, {64, 104}, {72, 16}, {72, 32}, {72, 48},
+                {72, 56}, {72, 64}, {72, 72}, {72, 88}, {72, 104}, {80, 16},
+                {80, 32}, {80, 88}, {80, 104}, {88, 16}, {88, 32}, {88, 40},
+                {88, 48}, {88, 56}, {88, 64}, {88, 72}, {88, 80}, {88, 88},
+                {88, 104}, {96, 16}, {96, 104}, {104, 16}, {104, 24}, {104, 32},
+                {104, 40}, {104, 48}, {104, 56}, {104, 64}, {104, 72},
+                {104, 80}, {104, 88}, {104, 96}, {104, 104}
+            }
         }
     }
-
-    obstacles = {}
 end

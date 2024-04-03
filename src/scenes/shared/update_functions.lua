@@ -137,6 +137,6 @@ function reset_ships_and_player()
         ship.x = ship.spawn_x
         ship.y = ship.spawn_y
         ship.status = ship.spawn_status
-        ship.speed = ship.spawn_speed
+        ship.direction_tick = ship.spawn_direction_tick
     end
 end

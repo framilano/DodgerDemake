@@ -7,15 +7,16 @@ function update_title()
     -- checks if user is using a new level code
     for i=1,count(global_vars.levels_codes) do
         local go_to_level = check_for_code(global_vars.levels_codes[i])
-        if btn(4) and go_to_level then
+        if btnp(4) and go_to_level then
             level_number = tonum(i+1)
             change_mode_and_reset("level_"..level_number)
             return
         end
     end
 
-    if btn(4) then
+    if btnp(4) then
         change_mode_and_reset("level_1")
+        global_vars.level_1_start_frame = global_vars.frame_counter
         return
     end
 

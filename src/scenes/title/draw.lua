@@ -1,6 +1,6 @@
 function draw_title()
     cls(0)
-    draw_grid(0, 128)
+    draw_grid(0, 128, 0, 128)
     
     draw_fruits()
 

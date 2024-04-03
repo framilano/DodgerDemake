@@ -1,4 +1,8 @@
 function init_title()
+
+    --Whenever entering title, reset level_1_start_frame to -1
+    global_vars.level_1_start_frame = -1
+    
     global_vars.hp = 3
 
     title_input_queue = {}
@@ -45,4 +49,10 @@ function init_title()
             }
         }
     }
+
+    -- Removing grid around message
+    for x=0,128, 8 do
+        add(obstacles[1].positions, {x, 96})
+        add(obstacles[1].positions, {x, 104})
+    end
 end

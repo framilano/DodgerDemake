@@ -6,6 +6,7 @@ function _init()
 	
 	global_vars = {
 		frame_counter = 0,
+		ignore_inputs_duration = 1, --to avoid accidental clicks we set a time frame user input are ignored
 		fps = 30,
 		hp = 3,
 		mode = "title", 	--initial mode
@@ -13,13 +14,18 @@ function _init()
 		levels_codes = {	--levels code
 			{2, 1, 1, 2},	--level 2
 			{3, 0, 1, 3},	--level 3
-			{0, 0, 2, 2}	--level 4
+			{0, 0, 2, 2},	--level 4
+			{2, 2, 0, 0},	--level 5
+		    {1, 1, 3, 1},	--level 6
 		},
 		levels_messages = {
 			"congrats!",	--level 2 message
 			"nice!",
-			"cool"
-		}
+			"cool",
+			"good",
+			"just luck",
+		},
+		level_1_start_frame = -1,	--saving the frame when level 1 starts, used to check final time
 	}
 
 	--load saved data
@@ -36,7 +42,11 @@ function _update()
 	if (global_vars.mode == "level_2") update_level_2()
 	if (global_vars.mode == "level_3") update_level_3()
 	if (global_vars.mode == "level_4") update_level_4()
+	if (global_vars.mode == "level_5") update_level_5()
+	if (global_vars.mode == "level_6") update_level_6()
 
+
+	if (global_vars.mode == "end_screen") update_end_screen()
 	if (global_vars.mode == "transition") update_transition()
 
 	global_vars.frame_counter += 1
@@ -49,11 +59,16 @@ function _draw()
 	if (global_vars.mode == "level_2") draw_level_2()
 	if (global_vars.mode == "level_3") draw_level_3()
 	if (global_vars.mode == "level_4") draw_level_4()
-	
+	if (global_vars.mode == "level_5") draw_level_5()
+	if (global_vars.mode == "level_6") draw_level_6()
+
+	if (global_vars.mode == "end_screen") draw_end_screen()
 	if (global_vars.mode == "transition") draw_transition()
 
+	--print(global_vars.level_1_start_frame, 10, 10)
 	--print("current global_vars.mode = "..global_vars.mode, 20, 20, 7)
 	--print(global_vars.current_level, 10, 10)
+	--print(count(global_vars.levels_codes), 10, 20)
 	--print(global_vars.hp, 10, 10)
 	--print(dget(0), 10, 10)
 end
@@ -64,7 +79,10 @@ function change_mode_and_reset(new_mode)
 	elseif new_mode == "level_2" then init_level_2()
 	elseif new_mode == "level_3" then init_level_3()
 	elseif new_mode == "level_4" then init_level_4()
-
+	elseif new_mode == "level_5" then init_level_5()
+	elseif new_mode == "level_6" then init_level_6()
+	
+	elseif new_mode == "end_screen" then init_end_screen()
 	elseif new_mode == "transition" then init_transition()
 	end
 	
@@ -128,6 +146,21 @@ end
 #include src/scenes/level_4/init.lua
 #include src/scenes/level_4/draw.lua
 #include src/scenes/level_4/update.lua
+
+---level_5 sources---
+#include src/scenes/level_5/init.lua
+#include src/scenes/level_5/draw.lua
+#include src/scenes/level_5/update.lua
+
+---level_6 sources---
+#include src/scenes/level_6/init.lua
+#include src/scenes/level_6/draw.lua
+#include src/scenes/level_6/update.lua
+
+---end sources---
+#include src/scenes/end_screen/init.lua
+#include src/scenes/end_screen/draw.lua
+#include src/scenes/end_screen/update.lua
 
 ---transition sources---
 #include src/scenes/transition/init.lua

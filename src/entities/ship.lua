@@ -15,27 +15,27 @@ function search_player(ship)
         end
         -- if we're searching it means we just mean that we reached the opposites of the grid
         -- the player can't be over us if we're going and down and viceversa, if this happens, shoot! It just took over our position
-        if (ship.speed < 0 and ship.y <= player.y) or (ship.speed > 0 and ship.y >= player.y) then 
+        if (ship.direction_tick < 0 and ship.y <= player.y) or (ship.direction_tick > 0 and ship.y >= player.y) then 
             ship.status = "shooting"
         end
 
         -- keep moving if we can't find the enemy
-        if ship.y == 112 then ship.speed = -abs(ship.speed) end
-        if ship.y == 8 then ship.speed = abs(ship.speed) end
-        if (sin(global_vars.frame_counter / 11) == 0) then ship.y += ship.speed end
+        if ship.y == 112 then ship.direction_tick = -abs(ship.direction_tick) end
+        if ship.y == 8 then ship.direction_tick = abs(ship.direction_tick) end
+        if (sin(global_vars.frame_counter / ship.movement_rate) == 0) then ship.y += ship.direction_tick end
     elseif ship.id == "up" or ship.id == "down" then
         if (ship.x == player.x) then
             ship.status = "shooting"
             return
         end
        
-        if (ship.speed < 0 and ship.x <= player.x) or (ship.speed > 0 and ship.x >= player.x) then 
+        if (ship.direction_tick < 0 and ship.x <= player.x) or (ship.direction_tick > 0 and ship.x >= player.x) then 
             ship.status = "shooting"
         end
 
-        if ship.x == 112 then ship.speed = -abs(ship.speed) end
-        if ship.x == 8 then ship.speed = abs(ship.speed) end
-        if (sin(global_vars.frame_counter / 11) == 0) then ship.x += ship.speed end
+        if ship.x == 112 then ship.direction_tick = -abs(ship.direction_tick) end
+        if ship.x == 8 then ship.direction_tick = abs(ship.direction_tick) end
+        if (sin(global_vars.frame_counter / ship.movement_rate) == 0) then ship.x += ship.direction_tick end
     end
 end
 
@@ -80,22 +80,22 @@ function back_to_reload(ship)
     if ship.id == "left" or ship.id == "right" then
         if ship.y == 112 then 
             ship.status = "searching_player" 
-            ship.speed = -abs(ship.speed)
+            ship.direction_tick = -abs(ship.direction_tick)
         end
         if ship.y == 8 then 
             ship.status = "searching_player" 
-            ship.speed = abs(ship.speed)
+            ship.direction_tick = abs(ship.direction_tick)
         end
-        if (sin(global_vars.frame_counter / 11) == 0) then ship.y += ship.speed end
+        if (sin(global_vars.frame_counter / ship.movement_rate) == 0) then ship.y += ship.direction_tick end
     elseif ship.id == "up" or ship.id == "down" then
         if ship.x == 112 then 
             ship.status = "searching_player" 
-            ship.speed = -abs(ship.speed)
+            ship.direction_tick = -abs(ship.direction_tick)
         end
         if ship.x == 8 then 
             ship.status = "searching_player" 
-            ship.speed = abs(ship.speed)
+            ship.direction_tick = abs(ship.direction_tick)
         end
-        if (sin(global_vars.frame_counter / 11) == 0) then ship.x += ship.speed end
+        if (sin(global_vars.frame_counter / ship.movement_rate) == 0) then ship.x += ship.direction_tick end
     end
 end

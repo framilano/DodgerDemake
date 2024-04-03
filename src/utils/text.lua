@@ -7,5 +7,5 @@ function blink()
 end
 
 function horizontal_center_text(text_length)
-    return flr((128-text_length*4)/2)
+    return flr(64-text_length*2)
 end

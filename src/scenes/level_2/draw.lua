@@ -2,7 +2,7 @@ function draw_level_2()
 
     player_draw_counter += 1
     cls(0)
-    draw_grid(8, 120)
+    draw_grid(8, 120, 8, 120)
     
     draw_fruits()
     draw_skeletons()

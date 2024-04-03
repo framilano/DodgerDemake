@@ -38,16 +38,16 @@ function draw_obstacles()
     end
 end
 
-function draw_grid(start, end_grid)
-    row = start
-    while row < end_grid do
-        column = start
-        while column < end_grid do
+function draw_grid(x_start, x_end, y_start, y_end)
+    row = y_start
+    while row < y_end do
+        column = x_start
+        while column < x_end do
             is_void_obstacle = false
             for obstacle in all(obstacles) do
                 if obstacle.type == "voids" then
                     for obstacle_position in all(obstacle.positions) do
-                        if obstacle_position[1] == row and obstacle_position[2] == column then
+                        if obstacle_position[1] == column and obstacle_position[2] == row then
                             is_void_obstacle = true
                             break
                         end
@@ -55,10 +55,10 @@ function draw_grid(start, end_grid)
                 end
             end
             if not is_void_obstacle then
-                spr(16, row, column)
-                spr(17, row, column)
+                spr(16, column, row)
+                spr(17, column, row)
             else
-                spr(4, row, column)
+                spr(4, column, row)
             end
             column += 8
         end
