@@ -1,5 +1,7 @@
 # Dodger Demake
 
+[lexaoffle bbs link (you can play it here!)](https://www.lexaloffle.com/bbs/?tid=141398)
+
 <p align="center">
   <em>
 The year is 1982 and pacman has once again managed to be zapped 
