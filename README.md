@@ -17,7 +17,7 @@ retirement (no more pacman games please - Pacman)
 A tribute to a Windows 3.1 game called [Dodger (1994)](https://archive.org/details/Dodger_1020#) made by Ivan Mackintosh, this is a demake though, the game is feature complete but presents a smaller playable area (128x128, due to PICO-8 features)
 
 ## Content
-The game currently has only 5 levels, the original Dodger had 10 levels in its shareware version, I never found the complete version.
+The game currently has only 6 levels, the original Dodger had 10 levels in its shareware version, I never found the complete version.
 
 ## How to play
 - Use arrow keys to move around
