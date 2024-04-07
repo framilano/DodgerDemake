@@ -3,7 +3,7 @@ function draw_player()
 end
 
 function draw_fruits()
-    for fruit in all(fruits) do
+    for type, fruit in pairs(fruits) do
         for position in all(fruit.positions) do
             spr(fruit.spr, position[1], position[2])
         end
@@ -17,7 +17,7 @@ function draw_skeletons()
 end
 
 function draw_ships()
-    for ship in all(ships) do
+    for type,ship in pairs(ships) do
         if not (ship.status == "disabled") then spr(ship.spr, ship.x, ship.y) end
     end 
 end
@@ -29,12 +29,8 @@ function draw_bullets()
 end
 
 function draw_obstacles()
-    for obstacle in all(obstacles) do
-        if obstacle.type == "walls" then
-            for position in all(obstacle.positions) do
-                spr(5, position[1], position[2])
-            end
-        end
+    for position in all(obstacles.walls.positions) do
+        spr(5, position[1], position[2])
     end
 end
 
@@ -44,14 +40,10 @@ function draw_grid(x_start, x_end, y_start, y_end)
         column = x_start
         while column < x_end do
             is_void_obstacle = false
-            for obstacle in all(obstacles) do
-                if obstacle.type == "voids" then
-                    for obstacle_position in all(obstacle.positions) do
-                        if obstacle_position[1] == column and obstacle_position[2] == row then
-                            is_void_obstacle = true
-                            break
-                        end
-                    end
+            for obstacle_position in all(obstacles.voids.positions) do
+                if obstacle_position[1] == column and obstacle_position[2] == row then
+                    is_void_obstacle = true
+                    break
                 end
             end
             if not is_void_obstacle then

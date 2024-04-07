@@ -46,36 +46,17 @@ end
 
 function _update()
 	if (global_vars.mode == "title") update_title()
-	if (global_vars.mode == "level_1") update_level_1()
-	if (global_vars.mode == "level_2") update_level_2()
-	if (global_vars.mode == "level_3") update_level_3()
-	if (global_vars.mode == "level_4") update_level_4()
-	if (global_vars.mode == "level_5") update_level_5()
-	if (global_vars.mode == "level_6") update_level_6()
-	if (global_vars.mode == "level_7") update_level_7()
-	if (global_vars.mode == "level_8") update_level_8()
-	if (global_vars.mode == "level_9") update_level_9()
-	if (global_vars.mode == "level_10") update_level_10()
+	if (sub(global_vars.mode, 1, 5) == "level") update_level()
 
 	if (global_vars.mode == "end_screen") update_end_screen()
 	if (global_vars.mode == "transition") update_transition()
 
 	global_vars.frame_counter += 1
-	update_timers()
 end
 
 function _draw()
 	if (global_vars.mode == "title") draw_title()
-	if (global_vars.mode == "level_1") draw_level_1()
-	if (global_vars.mode == "level_2") draw_level_2()
-	if (global_vars.mode == "level_3") draw_level_3()
-	if (global_vars.mode == "level_4") draw_level_4()
-	if (global_vars.mode == "level_5") draw_level_5()
-	if (global_vars.mode == "level_6") draw_level_6()
-	if (global_vars.mode == "level_7") draw_level_7()
-	if (global_vars.mode == "level_8") draw_level_8()
-	if (global_vars.mode == "level_9") draw_level_9()
-	if (global_vars.mode == "level_10") draw_level_10()
+	if (sub(global_vars.mode, 1, 5) == "level") draw_level()
 
 
 	if (global_vars.mode == "end_screen") draw_end_screen()
@@ -102,15 +83,11 @@ function change_mode_and_reset(new_mode)
 	elseif new_mode == "level_9" then init_level_9()
 	elseif new_mode == "level_10" then init_level_10()
 
-	
 	elseif new_mode == "end_screen" then init_end_screen()
 	elseif new_mode == "transition" then init_transition()
 	end
 	
 	global_vars.mode = new_mode
-
-	--Resetting timers
-	timers = {}
 end
 
 function change_mode(new_mode) global_vars.mode = new_mode end
@@ -139,69 +116,16 @@ function use_alternative_color_palette(alternative_color_palette)
 	poke(0x5f2e,1) 
 end
 
+---draws---
+#include src/draws.lua
+---inits---
+#include src/inits.lua
+---updates---
+#include src/updates.lua
+
 ---shared levels sources---
-#include src/scenes/shared/draw_functions.lua
-#include src/scenes/shared/update_functions.lua
-
----title sources---
-#include src/scenes/title/init.lua
-#include src/scenes/title/draw.lua
-#include src/scenes/title/update.lua
-
----level_1 sources---
-#include src/scenes/level_1/init.lua
-#include src/scenes/level_1/draw.lua
-#include src/scenes/level_1/update.lua
-
----level_2 sources---
-#include src/scenes/level_2/init.lua
-#include src/scenes/level_2/draw.lua
-#include src/scenes/level_2/update.lua
-
----level_3 sources---
-#include src/scenes/level_3/init.lua
-#include src/scenes/level_3/draw.lua
-#include src/scenes/level_3/update.lua
-
----level_4 sources---
-#include src/scenes/level_4/init.lua
-#include src/scenes/level_4/draw.lua
-#include src/scenes/level_4/update.lua
-
----level_5 sources---
-#include src/scenes/level_5/init.lua
-#include src/scenes/level_5/draw.lua
-#include src/scenes/level_5/update.lua
-
----level_6 sources---
-#include src/scenes/level_6/init.lua
-#include src/scenes/level_6/draw.lua
-#include src/scenes/level_6/update.lua
-
----level_7 sources---
-#include src/scenes/level_7/init.lua
-#include src/scenes/level_7/draw.lua
-#include src/scenes/level_7/update.lua
-
----level_8 sources---
-#include src/scenes/level_8/init.lua
-#include src/scenes/level_8/draw.lua
-#include src/scenes/level_8/update.lua
-
----level_9 sources---
-#include src/scenes/level_9/init.lua
-#include src/scenes/level_9/draw.lua
-#include src/scenes/level_9/update.lua
-
----end sources---
-#include src/scenes/end_screen/init.lua
-#include src/scenes/end_screen/draw.lua
-#include src/scenes/end_screen/update.lua
-
----transition sources---
-#include src/scenes/transition/init.lua
-#include src/scenes/transition/draw.lua
-#include src/scenes/transition/update.lua
+#include src/shared/draw_functions.lua
+#include src/shared/update_functions.lua
 
 ---entities sources---
 #include src/entities/ship.lua
@@ -209,9 +133,6 @@ end
 
 ---utility libraries---
 #include src/utils/text.lua
-#include src/utils/gameplay.lua
-#include src/utils/timers.lua
-#include src/utils/tables.lua
 
 __gfx__
 22e2222222e2222222222222222e2222000000006777777000aaaa000aaaa0000a000a0000aaa00000aaaa000aaaa0000aa0aa0000aaa0000000000000000000
