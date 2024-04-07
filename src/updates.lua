@@ -42,31 +42,37 @@ function update_title()
         return
     end
 
-    update_title_input_queue()
+    _update_title_input_queue()
 end
 
-function _check_for_color_palette_changer()
-    if btnp(5) then
-        if dget(0) == 0 then use_alternative_color_palette(1)
-        else use_alternative_color_palette(0)
-        end
+function update_end_screen()
+
+    -- ignoring inputs at first, so people cant skip immediately
+    if global_vars.frame_counter < end_screen_start_frame + global_vars.ignore_inputs_duration*global_vars.fps then 
+        return
+    end
+
+    if btnp(4) then
+        change_mode_and_reset("title")
+        return
     end
 end
 
-function _check_for_code(code_list)
-    for i=1, count(title_input_queue) do
-        if title_input_queue[i] == code_list[1] then
-            for j=2, count(code_list) do
-                i += 1
-                if code_list[j] != title_input_queue[i] then return false end
-            end
-            return true
-        end
-    end
-    return false
+function update_level()
+    
+    
+    check_fruits_eating()
+    
+    handle_ships()
+    handle_player()
+    
+    handle_bullets()
+    check_bullets_collision()
+    check_skeletons_impact()
+
 end
 
-function update_title_input_queue()
+function _update_title_input_queue()
 
     if count(title_input_queue) > 5 then title_input_queue = {} end
 
@@ -97,58 +103,23 @@ function update_title_input_queue()
     end
 end
 
-function update_end_screen()
-
-    -- ignoring inputs at first, so people cant skip immediately
-    if global_vars.frame_counter < end_screen_start_frame + global_vars.ignore_inputs_duration*global_vars.fps then 
-        return
-    end
-
-    if btnp(4) then
-        change_mode_and_reset("title")
-        return
+function _check_for_color_palette_changer()
+    if btnp(5) then
+        if dget(0) == 0 then use_alternative_color_palette(1)
+        else use_alternative_color_palette(0)
+        end
     end
 end
 
-function update_level()
-    _update_player_input_queue()
-    
-    check_fruits_eating()
-    
-    if sin(global_vars.frame_counter / 12) == 0 then
-        handle_ships()
+function _check_for_code(code_list)
+    for i=1, count(title_input_queue) do
+        if title_input_queue[i] == code_list[1] then
+            for j=2, count(code_list) do
+                i += 1
+                if code_list[j] != title_input_queue[i] then return false end
+            end
+            return true
+        end
     end
-    
-    if sin(global_vars.frame_counter / 5) == 0 then    
-        handle_player()
-        handle_bullets()
-        check_bullets_collision()
-        check_skeletons_impact()
-    end
-end
-
-
-function _update_player_input_queue()
-
-    if count(player_input_queue) > 3 then player_input_queue = {} end
-
-    if btnp(0) then 
-        add(player_input_queue, 0)
-        return
-    end
-
-    if btnp(1) then 
-        add(player_input_queue, 1)
-        return
-    end
-
-    if btnp(2) then 
-        add(player_input_queue, 2)
-        return
-    end
-
-    if btnp(3) then 
-        add(player_input_queue, 3)
-        return
-    end
+    return false
 end

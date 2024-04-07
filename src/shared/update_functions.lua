@@ -1,5 +1,8 @@
 function handle_player()
-    if player.status == "living" then move_player() end
+
+    _update_player_input_queue()
+
+    if player.status == "living" and sin(global_vars.frame_counter / player.movement_rate) == 0 then move_player() end
     if player.status == "dying" then death_event() end
     check_player_boundaries()
 end
@@ -120,10 +123,11 @@ function handle_bullets()
         if (bullet.x > 120 or bullet.x < 0 or bullet.y > 120 or bullet.x < 0) then
             del(bullets, bullet)
         end
-        if bullet.from == "left" or bullet.from == "right" then
-            bullet.x += bullet.speed
-        elseif bullet.from == "down" or bullet.from == "up" then
-            bullet.y += bullet.speed
+        if sin(global_vars.frame_counter / bullet.movement_rate) == 0 then
+            if bullet.from == "left" then bullet.x += 8 end
+            if bullet.from == "right" then bullet.x -= 8 end
+            if bullet.from == "down" then bullet.y -= 8 end
+            if bullet.from == "up" then bullet.y += 8 end
         end
     end
 end
@@ -141,6 +145,31 @@ function reset_ships_and_player()
         ship.x,
         ship.y,
         ship.status,
-        ship.direction_tick = ship.spawn_x, ship.spawn_y, ship.spawn_status, ship.spawn_direction_tick
+        ship.speed = ship.spawn_x, ship.spawn_y, ship.spawn_status, ship.spawn_speed
+    end
+end
+
+function _update_player_input_queue()
+
+    if count(player_input_queue) > 3 then player_input_queue = {} end
+
+    if btnp(0) then 
+        add(player_input_queue, 0)
+        return
+    end
+
+    if btnp(1) then 
+        add(player_input_queue, 1)
+        return
+    end
+
+    if btnp(2) then 
+        add(player_input_queue, 2)
+        return
+    end
+
+    if btnp(3) then 
+        add(player_input_queue, 3)
+        return
     end
 end

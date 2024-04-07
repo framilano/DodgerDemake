@@ -100,7 +100,8 @@ function entities_initializer()
         spr_start = {0, 0},
         height = 7,
         width = 7,
-        death_sprites = {33, 34, 35, 36, 37}
+        death_sprites = {33, 34, 35, 36, 37},
+        movement_rate = 5
     }
 
     ships = {
@@ -112,9 +113,10 @@ function entities_initializer()
             spawn_status = "searching_player",
             status = "searching_player",
             spr = 23,
-            spawn_direction_tick = -8,
-            direction_tick = -8,
-            stasis_ticks_counter = 6
+            spawn_speed = -8,
+            speed = -8,
+            stasis_ticks_counter = 45,
+            movement_rate = 5
         },
         right = {
             spawn_x = 120,
@@ -124,9 +126,10 @@ function entities_initializer()
             spawn_status = "searching_player",
             status = "searching_player",
             spr = 22,
-            spawn_direction_tick = 8,
-            direction_tick = 8,
-            stasis_ticks_counter = 6
+            spawn_speed = 8,
+            speed = 8,
+            stasis_ticks_counter = 45,
+            movement_rate = 5
         },
         up = {
             spawn_x = 8,
@@ -136,9 +139,10 @@ function entities_initializer()
             spawn_status = "searching_player",
             status = "searching_player",
             spr = 24,
-            spawn_direction_tick = 8,
-            direction_tick = 8,
-            stasis_ticks_counter = 6
+            spawn_speed = 8,
+            speed = 8,
+            stasis_ticks_counter = 45,
+            movement_rate = 5
         },
         down = {
             spawn_x = 112,
@@ -148,9 +152,10 @@ function entities_initializer()
             spawn_status = "searching_player",
             status = "searching_player",
             spr = 21,
-            spawn_direction_tick = -8,
-            direction_tick = -8,
-            stasis_ticks_counter = 6
+            spawn_speed = -8,
+            speed = -8,
+            stasis_ticks_counter = 45,
+            movement_rate = 5
         }
     }
 
