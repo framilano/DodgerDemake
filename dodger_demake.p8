@@ -17,13 +17,21 @@ function _init()
 			{0, 0, 2, 2},	--level 4
 			{2, 2, 0, 0},	--level 5
 		    {1, 1, 3, 1},	--level 6
+			{2, 1, 2, 3},	--level 7
+			{1, 1, 0, 3},	--level 8
+			{1, 2, 3, 3},	--level 9
+			{3, 1, 2, 3}	--level 10
 		},
 		levels_messages = {
 			"congrats!",	--level 2 message
 			"nice!",
 			"cool",
 			"good",
+			"okay",
 			"just luck",
+			"enough",
+			"you're wasting time",
+			"run"
 		},
 		level_1_start_frame = -1,	--saving the frame when level 1 starts, used to check final time
 	}
@@ -44,7 +52,10 @@ function _update()
 	if (global_vars.mode == "level_4") update_level_4()
 	if (global_vars.mode == "level_5") update_level_5()
 	if (global_vars.mode == "level_6") update_level_6()
-
+	if (global_vars.mode == "level_7") update_level_7()
+	if (global_vars.mode == "level_8") update_level_8()
+	if (global_vars.mode == "level_9") update_level_9()
+	if (global_vars.mode == "level_10") update_level_10()
 
 	if (global_vars.mode == "end_screen") update_end_screen()
 	if (global_vars.mode == "transition") update_transition()
@@ -61,6 +72,11 @@ function _draw()
 	if (global_vars.mode == "level_4") draw_level_4()
 	if (global_vars.mode == "level_5") draw_level_5()
 	if (global_vars.mode == "level_6") draw_level_6()
+	if (global_vars.mode == "level_7") draw_level_7()
+	if (global_vars.mode == "level_8") draw_level_8()
+	if (global_vars.mode == "level_9") draw_level_9()
+	if (global_vars.mode == "level_10") draw_level_10()
+
 
 	if (global_vars.mode == "end_screen") draw_end_screen()
 	if (global_vars.mode == "transition") draw_transition()
@@ -81,6 +97,11 @@ function change_mode_and_reset(new_mode)
 	elseif new_mode == "level_4" then init_level_4()
 	elseif new_mode == "level_5" then init_level_5()
 	elseif new_mode == "level_6" then init_level_6()
+	elseif new_mode == "level_7" then init_level_7()
+	elseif new_mode == "level_8" then init_level_8()
+	elseif new_mode == "level_9" then init_level_9()
+	elseif new_mode == "level_10" then init_level_10()
+
 	
 	elseif new_mode == "end_screen" then init_end_screen()
 	elseif new_mode == "transition" then init_transition()
@@ -157,6 +178,21 @@ end
 #include src/scenes/level_6/draw.lua
 #include src/scenes/level_6/update.lua
 
+---level_7 sources---
+#include src/scenes/level_7/init.lua
+#include src/scenes/level_7/draw.lua
+#include src/scenes/level_7/update.lua
+
+---level_8 sources---
+#include src/scenes/level_8/init.lua
+#include src/scenes/level_8/draw.lua
+#include src/scenes/level_8/update.lua
+
+---level_9 sources---
+#include src/scenes/level_9/init.lua
+#include src/scenes/level_9/draw.lua
+#include src/scenes/level_9/update.lua
+
 ---end sources---
 #include src/scenes/end_screen/init.lua
 #include src/scenes/end_screen/draw.lua
@@ -178,14 +214,14 @@ end
 #include src/utils/tables.lua
 
 __gfx__
-22e2222222e2222222222222222e2222000000006777777700aaaa000aaaa0000a000a0000aaa00000aaaa000aaaa0000aa0aa0000aaa0000000000000000000
-2eee22222e222222222e22222222e22200000000566666670aaaaaa0aaaaaa00aa000aa00aaaaa000aaaaaa0aaaaaa00aaa0aaa00aaaaa000000000000000000
-e2e2e222eeeeee22222e2222eeeeee220000000056666667aaaaa00000aaaaa0aaa0aaa0aaaaaaa0aaaaaaa0aaaaaaa0aaa0aaa0aaaaaaa00000000000000000
-22e222222e222222222e22222222e2220000000056666667aaaa0000000aaaa0aaaaaaa0aaaaaaa0aaaa0000000aaaa0aaaaaaa0aaaaaaa00000000000000000
-22e2222222e222222e2e2e22222e22220000000056666667aaaaa00000aaaaa0aaaaaaa0aaa0aaa0aaaaaaa0aaaaaaa0aaaaaaa0aaa0aaa00000000000000000
-22e22222222222222eeeee222222222200000000566666670aaaaaa0aaaaaa000aaaaa00aa000aa00aaaaaa0aaaaaa000aaaaa00aaa0aaa00000000000000000
-222222222222222222eee22222222222000000005666666700aaaa000aaaa00000aaa0000a000a0000aaaa000aaaa00000aaa0000aa0aa000000000000000000
-2222222222222222222e222222222222000000005555555600000000000000000000000000000000000000000000000000000000000000000000000000000000
+22e2222222e2222222222222222e2222000000006777777000aaaa000aaaa0000a000a0000aaa00000aaaa000aaaa0000aa0aa0000aaa0000000000000000000
+2eee22222e222222222e22222222e22200000000566666700aaaaaa0aaaaaa00aa000aa00aaaaa000aaaaaa0aaaaaa00aaa0aaa00aaaaa000000000000000000
+e2e2e222eeeeee22222e2222eeeeee220000000056666670aaaaa00000aaaaa0aaa0aaa0aaaaaaa0aaaaaaa0aaaaaaa0aaa0aaa0aaaaaaa00000000000000000
+22e222222e222222222e22222222e2220000000056666670aaaa0000000aaaa0aaaaaaa0aaaaaaa0aaaa0000000aaaa0aaaaaaa0aaaaaaa00000000000000000
+22e2222222e222222e2e2e22222e22220000000056666670aaaaa00000aaaaa0aaaaaaa0aaa0aaa0aaaaaaa0aaaaaaa0aaaaaaa0aaa0aaa00000000000000000
+22e22222222222222eeeee222222222200000000566666700aaaaaa0aaaaaa000aaaaa00aa000aa00aaaaaa0aaaaaa000aaaaa00aaa0aaa00000000000000000
+222222222222222222eee22222222222000000005555557000aaaa000aaaa00000aaa0000a000a0000aaaa000aaaa00000aaa0000aa0aa000000000000000000
+2222222222222222222e222222222222000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 000000000001000000333000007770000000300000000000000003300bb0000003888b0000000000000000000000000000000000000000000000000000000000
 000000000001000008888800077777000003000000b0b00000033333bbbbb0003333bbb000999900000000000000000000000000000000000000000000000000
 000000000001000088988980070707000030300000b0b0000bb333388bbbbbb03333bbb000000000090009000000000000000000000000000000000000000000

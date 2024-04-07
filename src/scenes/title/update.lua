@@ -9,6 +9,7 @@ function update_title()
         local go_to_level = check_for_code(global_vars.levels_codes[i])
         if btnp(4) and go_to_level then
             level_number = tonum(i+1)
+            global_vars.current_level = level_number
             change_mode_and_reset("level_"..level_number)
             return
         end
@@ -16,6 +17,7 @@ function update_title()
 
     if btnp(4) then
         change_mode_and_reset("level_1")
+        global_vars.current_level = 1
         global_vars.level_1_start_frame = global_vars.frame_counter
         return
     end

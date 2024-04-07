@@ -1,7 +1,4 @@
 function init_level_1()
-
-    global_vars.current_level = 1
-
     -- saving every bullets on fields
     bullets = {}
     -- counts how many times the player is drawn, used to check if we should show an open or closed mouth sprite
@@ -41,8 +38,7 @@ function init_level_1()
             movement_rate = 7,
             stasis_duration = 2,
             stasis_frame_counter = 0
-        },
-        {
+        }, {
             id = "right",
             spawn_x = 120,
             spawn_y = 8,
@@ -56,13 +52,12 @@ function init_level_1()
             movement_rate = 7,
             stasis_duration = 2,
             stasis_frame_counter = 0
-        },
-        {
+        }, {
             id = "up",
             spawn_x = 8,
             spawn_y = 0,
-            spawn_status = "disabled",
-            status = "disabled",
+            spawn_status = "searching_player",
+            status = "searching_player",
             x = 8,
             y = 0,
             spr = 24,
@@ -71,13 +66,12 @@ function init_level_1()
             movement_rate = 7,
             stasis_duration = 2,
             stasis_frame_counter = 0
-        },
-        {
+        }, {
             id = "down",
             spawn_x = 112,
             spawn_y = 120,
-            spawn_status = "disabled",
-            status = "disabled",
+            spawn_status = "searching_player",
+            status = "searching_player",
             x = 112,
             y = 120,
             spr = 21,
@@ -91,26 +85,23 @@ function init_level_1()
 
     fruits = {
         {
-            type = "strawberry",
-            spr = 18,
+            type = "apple",
+            spr = 32,
             spr_start = {0, 0},
             positions = {
-                {16, 56}, {16, 64}, {24, 24}, {24, 56}, {24, 64}, {24, 96},
-                {40, 40}, {40, 80}, {56, 16}, {56, 24}, {56, 96}, {56, 104},
-                {64, 16}, {64, 24}, {64, 96}, {64, 104}, {80, 40}, {80, 80},
-                {96, 24}, {96, 56}, {96, 64}, {96, 96}, {104, 56}, {104, 64}
+                {16, 24}, {16, 32}, {16, 40}, {16, 48}, {16, 56}, {16, 64},
+                {16, 72}, {16, 80}, {16, 88}, {16, 96}, {24, 24}, {24, 96},
+                {32, 32}, {32, 88}, {40, 40}, {40, 80}, {48, 24}, {48, 32},
+                {48, 88}, {48, 96}, {56, 24}, {56, 96}, {64, 24}, {64, 96},
+                {72, 24}, {72, 32}, {72, 88}, {72, 96}, {80, 40}, {80, 80},
+                {88, 32}, {88, 88}, {96, 24}, {96, 96}, {104, 24}, {104, 32},
+                {104, 40}, {104, 48}, {104, 56}, {104, 64}, {104, 72},
+                {104, 80}, {104, 88}, {104, 96}
             }
-        }, {type = "cherry", spr = 20, spr_start = {0, 0}, positions = {}}
-    }
-
-    skeletons = {
-        spr = 19,
-        spr_start = {0, 0},
-        positions = {
-            {16, 16}, {16, 104}, {32, 32}, {32, 88}, {88, 32}, {88, 88},
-            {104, 16}, {104, 104}
         }
     }
+
+    skeletons = {}
 
     obstacles = {}
 end

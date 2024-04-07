@@ -13,6 +13,7 @@ function update_transition()
 
     if btnp(0) or btnp(1) or btnp(2) or btnp(3) or btnp(4) or btnp(5) then
         next_level = "level_"..tostr(global_vars.current_level + 1)
+        global_vars.current_level += 1
         change_mode_and_reset(next_level)
     end
 end
