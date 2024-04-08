@@ -20,7 +20,9 @@ function _init()
 			{2, 1, 2, 3},	--level 7
 			{1, 1, 0, 3},	--level 8
 			{1, 2, 3, 3},	--level 9
-			{3, 1, 2, 3}	--level 10
+			{3, 1, 2, 3},	--level 10
+			{1, 3, 3, 1}	--level 11
+
 		},
 		levels_messages = {
 			"congrats!",	--level 2 message
@@ -31,7 +33,8 @@ function _init()
 			"just luck",
 			"enough",
 			"you're wasting time",
-			"run"
+			"run",
+			":)"
 		},
 		level_1_start_frame = -1,	--saving the frame when level 1 starts, used to check final time
 	}
@@ -82,6 +85,7 @@ function change_mode_and_reset(new_mode)
 	elseif new_mode == "level_8" then init_level_8()
 	elseif new_mode == "level_9" then init_level_9()
 	elseif new_mode == "level_10" then init_level_10()
+	elseif new_mode == "level_11" then init_level_11()
 
 	elseif new_mode == "end_screen" then init_end_screen()
 	elseif new_mode == "transition" then init_transition()
@@ -133,6 +137,8 @@ end
 
 ---utility libraries---
 #include src/utils/text.lua
+#include src/utils/token_saver.lua
+
 
 __gfx__
 22e2222222e2222222222222222e2222000000006777777000aaaa000aaaa0000a000a0000aaa00000aaaa000aaaa0000aa0aa0000aaa0000000000000000000

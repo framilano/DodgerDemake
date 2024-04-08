@@ -17,8 +17,8 @@ function draw_skeletons()
 end
 
 function draw_ships()
-    for type,ship in pairs(ships) do
-        if not (ship.status == "disabled") then spr(ship.spr, ship.x, ship.y) end
+    for type, ship in pairs(ships) do
+        if ship.status != "disabled" then spr(ship.spr, ship.x, ship.y) end
     end 
 end
 
