@@ -21,7 +21,7 @@ A tribute to a Windows 3.1 game called [Dodger (1994)](https://archive.org/detai
 **The game is publicly available and playable on lexaoffle pico-8 site** [here](https://www.lexaloffle.com/bbs/?tid=141398)
 
 ## Content
-The game currently has only 6 levels, the original Dodger had 10 levels in its shareware version, I never managed to get my hands on the full version of it.
+The game currently has 10 levels, they resemble as much as possible the OG Dodger design from the registered version of the game (not the shareware one)
 
 ## How to play
 - Use arrow keys to move around.
