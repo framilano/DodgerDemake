@@ -3,11 +3,11 @@ function handle_player()
     _update_player_input_queue()
 
     if player.status == "living" and sin(global_vars.frame_counter / player.movement_rate) == 0 then move_player() end
-    if player.status == "dying" then death_event() end
+    if player.status == "dying" then handle_death_event() end
     check_player_boundaries()
 end
 
-function death_event()
+function handle_death_event()
     for type, ship in pairs(ships) do
         ship.status = "disabled"
     end
@@ -82,10 +82,7 @@ end
 function check_skeletons_impact()
     for position in all(skeletons.positions) do
         if player.x == position[1] and player.y == position[2] and player.status == "living" then
-            global_vars.hp,
-            death_frame,
-            player.status = global_vars.hp - 1, global_vars.frame_counter, "dying"
-            music(0)
+            time_to_die()
             return
         end
     end
@@ -99,10 +96,7 @@ function check_bullets_collision()
             (player.direction == "left" and bullet.from == "left" and player.y == bullet.y and player.x == bullet.x - 8) or
             (player.direction == "right" and bullet.from == "right" and player.y == bullet.y and player.x == bullet.x + 8) then
                 del(bullets, bullet)
-                global_vars.hp,
-                death_frame,
-                player.status = global_vars.hp - 1, global_vars.frame_counter, "dying"
-                music(0)
+                time_to_die()
                 return
         end
     end
@@ -172,4 +166,11 @@ function _update_player_input_queue()
         add(player_input_queue, 3)
         return
     end
+end
+
+function time_to_die()
+    global_vars.hp,
+    death_frame,
+    player.status = global_vars.hp - 1, global_vars.frame_counter, "dying"
+    music(0)
 end
